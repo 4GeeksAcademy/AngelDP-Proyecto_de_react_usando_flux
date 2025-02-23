@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
@@ -27,6 +28,9 @@ export const AddContact = () => {
                 <input type="text" placeholder="Address" name="address" value={form.address} onChange={handleChange} required />
                 <button type="submit" className="btn btn-primary">Agregar</button>
             </form>
+            <div>
+                <Link to={"/"} className="btn btn-secondary mx-2"> Cancel</Link>
+            </div>
         </div>
     );
 };

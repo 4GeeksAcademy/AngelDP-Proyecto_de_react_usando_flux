@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
@@ -11,11 +12,14 @@ export const EditContact = () => {
     const contact = store.contacts.find(contact => contact.id === parseInt(id));
     const [form, setForm] = useState(contact || { name: "", email: "", phone: "", address: "" })
 
+
     useEffect(() => {
         if (contact) {
             setForm(contact);
         }
     }, [contact]);
+
+
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
     const handleSubmit = (e) => {
@@ -34,6 +38,9 @@ export const EditContact = () => {
                 <input type="text" name="address" value={form.address} onChange={handleChange} required />
                 <button type="submit" className="btn btn-success">Guardar</button>
             </form>
+            <div>
+                <Link to={"/"} className="btn btn-secondary mx-2"> Cancel</Link>
+            </div>
         </div>
     );
 };
