@@ -29,17 +29,63 @@ export const EditContact = () => {
     }
 
     return (
-        <div className="container">
-            <h1>Editar Contacto</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="name" value={form.name} onChange={handleChange} required />
-                <input type="email" name="email" value={form.email} onChange={handleChange} required />
-                <input type="tel" name="phone" value={form.phone} onChange={handleChange} required />
-                <input type="text" name="address" value={form.address} onChange={handleChange} required />
-                <button type="submit" className="btn btn-success">Guardar</button>
-            </form>
-            <div>
-                <Link to={"/"} className="btn btn-secondary mx-2"> Cancel</Link>
+        <div className="container mt-5">
+            <div className="card shadow-sm p-4">
+                <h1 className="text-center mb-4">Editar Contacto</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Nombre</label>
+                        <input 
+                            type="text" 
+                            id="name"
+                            name="name" 
+                            className="form-control" 
+                            value={form.name} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                        <input 
+                            type="email" 
+                            id="email"
+                            name="email" 
+                            className="form-control" 
+                            value={form.email} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="phone" className="form-label">Teléfono</label>
+                        <input 
+                            type="tel" 
+                            id="phone"
+                            name="phone" 
+                            className="form-control" 
+                            value={form.phone} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="address" className="form-label">Dirección</label>
+                        <input 
+                            type="text" 
+                            id="address"
+                            name="address" 
+                            className="form-control" 
+                            value={form.address} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="d-flex justify-content-between">
+                        <button type="submit" className="btn btn-success">Guardar</button>
+                        <Link to={"/"} className="btn btn-secondary">Cancelar</Link>
+                    </div>
+                </form>
             </div>
         </div>
     );

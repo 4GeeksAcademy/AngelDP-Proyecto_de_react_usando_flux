@@ -19,17 +19,67 @@ export const AddContact = () => {
     };
 
     return (
-        <div className="container">
-            <h1>Agregar Contacto</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Full Name" name="name" value={form.name} onChange={handleChange} required />
-                <input type="email" placeholder="Email" name="email" value={form.email} onChange={handleChange} required />
-                <input type="tel" placeholder="Phone number" name="phone" value={form.phone} onChange={handleChange} required />
-                <input type="text" placeholder="Address" name="address" value={form.address} onChange={handleChange} required />
-                <button type="submit" className="btn btn-primary">Agregar</button>
-            </form>
-            <div>
-                <Link to={"/"} className="btn btn-secondary mx-2"> Cancel</Link>
+        <div className="container mt-5">
+            <div className="card shadow-sm p-4">
+                <h1 className="text-center mb-4">Agregar Contacto</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="name" className="form-label">Nombre Completo</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="form-control"
+                            placeholder="Full Name"
+                            value={form.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            className="form-control"
+                            placeholder="Email"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="phone" className="form-label">Teléfono</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            className="form-control"
+                            placeholder="Phone number"
+                            value={form.phone}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="address" className="form-label">Dirección</label>
+                        <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            className="form-control"
+                            placeholder="Address"
+                            value={form.address}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="d-flex justify-content-between mt-4">
+                        <button type="submit" className="btn btn-primary">Agregar</button>
+                        <Link to={"/"} className="btn btn-secondary">Cancelar</Link>
+                    </div>
+                </form>
             </div>
         </div>
     );
