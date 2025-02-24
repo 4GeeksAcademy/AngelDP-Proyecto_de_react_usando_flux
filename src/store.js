@@ -1,15 +1,33 @@
 export const initialStore = () => {
   return {
-    contacts: [
-      {
-        id: 1, name: "Angel Ponte", address: "Madrid", phone: "610-98-84-96", email: "angeld0606@gmail.com"
-      },
-    ]
+    agendas: [],
+    contacts: []
   }
 }
 
 export default function storeReducer(store, action = {}) {
   switch (action.type) {
+
+    //Funciones para trabajar con las agendas.
+
+    case 'set_agendas':
+      return {
+        ...store, agendas: action.payload
+      };
+
+    case 'delete_agenda':
+    return {
+        ...store,
+        agendas: store.agendas.filter((agenda) => agenda.slug !== action.payload)
+    };
+
+
+    // Funciones para trabajar con los contactos.
+
+    case 'set_contacts':
+      return {
+        ...store, contacts: action.payload
+      };
 
     case 'add_contact':
 
@@ -35,5 +53,5 @@ export default function storeReducer(store, action = {}) {
 
     default:
       throw Error('Unknown action.');
-  }
-}
+  };
+};

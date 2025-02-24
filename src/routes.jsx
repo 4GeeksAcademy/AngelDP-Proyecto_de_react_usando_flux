@@ -7,9 +7,10 @@ import {
 } from "react-router-dom";
 
 
-import { Contacts } from "./pages/Contacts";
+import { Agendas } from "./pages/Agendas";
 import { EditContact } from "./pages/EditContacts";
 import { AddContact } from "./pages/AddContact";
+import { CreateAgenda } from "./pages/CreateAgenda";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,9 +22,10 @@ export const router = createBrowserRouter(
 
     // Root Route: All navigation will start from here.
     <>
-      <Route path="/" element={<Contacts />} />
+      <Route path="/" element={<Agendas />} />
       <Route path="/edit/:id" element={<EditContact />} />
       <Route path="/add" element={<AddContact />} />
+      <Route path="/create-agenda" element={<CreateAgenda />} />
     </>
   )
 );
