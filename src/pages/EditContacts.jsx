@@ -25,7 +25,7 @@ export const EditContact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch({ type: "edit_contact", payload: form });
-        navigate("/");
+        navigate("/agenda/:slug");
     }
 
     return (

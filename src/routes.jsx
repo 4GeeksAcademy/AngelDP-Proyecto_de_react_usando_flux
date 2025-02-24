@@ -11,6 +11,8 @@ import { Agendas } from "./pages/Agendas";
 import { EditContact } from "./pages/EditContacts";
 import { AddContact } from "./pages/AddContact";
 import { CreateAgenda } from "./pages/CreateAgenda";
+import { Contacts } from "./pages/Contacts";
+import { CreateContact } from "./pages/CreateContact";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ export const router = createBrowserRouter(
       <Route path="/edit/:id" element={<EditContact />} />
       <Route path="/add" element={<AddContact />} />
       <Route path="/create-agenda" element={<CreateAgenda />} />
+      <Route path="/agenda/:slug" element={<Contacts />} />
+      <Route path="/agenda/:slug/create" element={<CreateContact />} />
     </>
   )
 );
