@@ -11,7 +11,7 @@ export const CreateContact = () => {
     const { slug } = useParams();
 
     const handleCreate = async (event) => {
-        event.preventDefault();  
+        event.preventDefault();
 
         try {
             const response = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts`, {
@@ -28,9 +28,9 @@ export const CreateContact = () => {
                 }),
             });
 
-            console.log('Response Status:', response.status);
-            const responseBody = await response.text();
-            console.log('Response Body:', responseBody);
+            
+            const data = await response.text();
+            
 
             if (!response.ok) {
                 throw new Error("No se pudo crear el contacto.");
@@ -39,7 +39,7 @@ export const CreateContact = () => {
 
             dispatch({ type: "add_contact", payload: [...store.contacts, data] });
 
-            // Navegar a la página de contactos
+            
             navigate(`/agenda/${slug}`);
 
         } catch (error) {
@@ -49,10 +49,18 @@ export const CreateContact = () => {
 
     return (
         <div className="container mt-5">
-            <div className="card shadow-sm p-4">
-                <h3 className="text-center">Crear Nuevo Contacto</h3>
+            <div
+                className="card shadow-lg rounded-4 p-5 border-0"
+                style={{
+                    backgroundColor: "#f4e6d7",
+                    border: "1px solid #d2b48c",
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+                }}
+            >
+                <h3 className="text-center fw-bold text-dark mb-4">📇 Crear Nuevo Contacto</h3>
+
                 <form onSubmit={handleCreate}>
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <input
                             type="text"
                             className="form-control"
@@ -60,8 +68,14 @@ export const CreateContact = () => {
                             value={newContact.name}
                             onChange={(e) => setNewContact(prev => ({ ...prev, name: e.target.value }))}
                             required
+                            style={{
+                                backgroundColor: "#fdfaf4",
+                                border: "1px solid #d2b48c",
+                                boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
+                            }}
                         />
                     </div>
+
                     <div className="form-group mt-2">
                         <input
                             type="email"
@@ -70,8 +84,14 @@ export const CreateContact = () => {
                             value={newContact.email}
                             onChange={(e) => setNewContact(prev => ({ ...prev, email: e.target.value }))}
                             required
+                            style={{
+                                backgroundColor: "#fdfaf4",
+                                border: "1px solid #d2b48c",
+                                boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
+                            }}
                         />
                     </div>
+
                     <div className="form-group mt-2">
                         <input
                             type="text"
@@ -80,8 +100,14 @@ export const CreateContact = () => {
                             value={newContact.phone}
                             onChange={(e) => setNewContact(prev => ({ ...prev, phone: e.target.value }))}
                             required
+                            style={{
+                                backgroundColor: "#fdfaf4",
+                                border: "1px solid #d2b48c",
+                                boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
+                            }}
                         />
                     </div>
+
                     <div className="form-group mt-2">
                         <input
                             type="text"
@@ -90,11 +116,25 @@ export const CreateContact = () => {
                             value={newContact.address}
                             onChange={(e) => setNewContact(prev => ({ ...prev, address: e.target.value }))}
                             required
+                            style={{
+                                backgroundColor: "#fdfaf4",
+                                border: "1px solid #d2b48c",
+                                boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
+                            }}
                         />
                     </div>
+
                     <div className="d-flex justify-content-center mt-4">
-                        <button type="submit" className="btn btn-primary">
-                            Crear Contacto
+                        <button
+                            type="submit"
+                            className="btn text-white rounded-pill px-4 py-2"
+                            style={{
+                                backgroundColor: "#8b5a2b",
+                                border: "none",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                            }}
+                        >
+                            📞 Crear Contacto
                         </button>
                     </div>
                 </form>

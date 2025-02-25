@@ -38,32 +38,54 @@ export const Agendas = () => {
 
     return (
         <div className="container mt-5">
-            <div className="card shadow-sm p-4">
-                <div className="align-items-center p-3">
-                    <h1 className="text-center mb-4">Agendas</h1>
-                    <div className="text-center text-muted">
-                        <Link to="/create-agenda">
-                            <button className="btn btn-primary">Crear una nueva agenda</button>
-                        </Link>
-                    </div>
+            <div
+                className="card shadow-lg rounded-4 p-5 border-0"
+                style={{
+                    backgroundColor: "#f4e6d7",
+                    border: "1px solid #d2b48c",
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+                }}
+            >
+                <div className="text-center mb-4">
+                    <h1 className="fw-bold text-dark">📜 Agendas</h1>
+                    <p className="text-muted">Administra tus agendas como un verdadero escriba</p>
+                    <Link to="/create-agenda">
+                        <button
+                            className="btn btn-dark btn-lg rounded-pill px-4 mt-3"
+                            style={{
+                                backgroundColor: "#8b5a2b",
+                                border: "none",
+                            }}
+                        >
+                            + Crear nueva agenda
+                        </button>
+                    </Link>
                 </div>
 
                 {store.agendas.length > 0 ? (
-                    <ul className="list-group">
+                    <ul className="list-group list-group-flush">
                         {store.agendas.map((agenda) => (
                             <li
                                 key={agenda.id}
-                                className="list-group-item d-flex justify-content-between align-items-center p-3"
+                                className="list-group-item d-flex justify-content-between align-items-center py-4"
+                                style={{
+                                    backgroundColor: "#f4e6d7",
+                                    borderBottom: "1px solid #d2b48c",
+                                }}
                             >
                                 <div>
-                                    <h5 className="mb-1">{agenda.slug}</h5>
+                                    <h5 className="mb-0 text-dark fw-semibold">{agenda.slug}</h5>
                                 </div>
                                 <div>
-                                    <Link to={`/agenda/${agenda.slug}`} className="btn btn-outline-primary btn-sm mx-1">
-                                        Ver Contactos
+                                    <Link
+                                        to={`/agenda/${agenda.slug}`}
+                                        className="btn btn-outline-dark btn-sm rounded-pill me-2"
+                                        style={{ borderColor: "#8b5a2b", color: "#8b5a2b" }}
+                                    >
+                                        Ver contactos
                                     </Link>
                                     <button
-                                        className="btn btn-outline-danger btn-sm"
+                                        className="btn btn-outline-danger btn-sm rounded-pill"
                                         onClick={() => handleDelete(agenda.slug)}
                                     >
                                         Eliminar
@@ -73,7 +95,9 @@ export const Agendas = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p className="text-center text-muted">No hay agendas disponibles.</p>
+                    <p className="text-center text-dark mt-4 fs-5">
+                        No hay agendas disponibles.
+                    </p>
                 )}
             </div>
         </div>
