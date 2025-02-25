@@ -71,7 +71,7 @@ export const Contacts = () => {
                                     >
                                         Eliminar
                                     </button>
-                                    <Link to={`/edit/${contact.id}`} className="btn btn-outline-info btn-sm mx-1">
+                                    <Link to={`/agenda/${slug}/contacts/${contact.id}/edit`} className="btn btn-outline-info btn-sm mx-1">
                                         Editar
                                     </Link>
                                 </li> 

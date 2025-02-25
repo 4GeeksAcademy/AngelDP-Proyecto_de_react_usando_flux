@@ -11,7 +11,7 @@ export const CreateContact = () => {
     const { slug } = useParams();
 
     const handleCreate = async (event) => {
-        event.preventDefault();  // Evita que el formulario haga el submit por defecto.
+        event.preventDefault();  
 
         try {
             const response = await fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts`, {
@@ -36,8 +36,6 @@ export const CreateContact = () => {
                 throw new Error("No se pudo crear el contacto.");
             }
 
-            const data = JSON.parse(responseBody);
-            console.log('Response Data:', data);
 
             dispatch({ type: "add_contact", payload: [...store.contacts, data] });
 

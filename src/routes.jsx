@@ -25,7 +25,7 @@ export const router = createBrowserRouter(
     // Root Route: All navigation will start from here.
     <>
       <Route path="/" element={<Agendas />} />
-      <Route path="/edit/:id" element={<EditContact />} />
+      <Route path="/agenda/:slug/contacts/:id/edit" element={<EditContact />} />
       <Route path="/add" element={<AddContact />} />
       <Route path="/create-agenda" element={<CreateAgenda />} />
       <Route path="/agenda/:slug" element={<Contacts />} />
