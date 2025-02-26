@@ -48,7 +48,7 @@ export const Agendas = () => {
             >
                 <div className="text-center mb-4">
                     <h1 className="fw-bold text-dark">📜 Agendas</h1>
-                    <p className="text-muted">Administra tus agendas como un verdadero escriba</p>
+                    <p className="text-muted">Administra tus agendas</p>
                     <Link to="/create-agenda">
                         <button
                             className="btn btn-dark btn-lg rounded-pill px-4 mt-3"
@@ -79,7 +79,7 @@ export const Agendas = () => {
                                 <div>
                                     <Link
                                         to={`/agenda/${agenda.slug}`}
-                                        className="btn btn-outline-dark btn-sm rounded-pill me-2"
+                                        className="btn btn-outline-info btn-sm rounded-pill me-2"
                                         style={{ borderColor: "#8b5a2b", color: "#8b5a2b" }}
                                     >
                                         Ver contactos

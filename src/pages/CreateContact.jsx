@@ -28,9 +28,9 @@ export const CreateContact = () => {
                 }),
             });
 
-            
+
             const data = await response.text();
-            
+
 
             if (!response.ok) {
                 throw new Error("No se pudo crear el contacto.");
@@ -39,7 +39,7 @@ export const CreateContact = () => {
 
             dispatch({ type: "add_contact", payload: [...store.contacts, data] });
 
-            
+
             navigate(`/agenda/${slug}`);
 
         } catch (error) {
